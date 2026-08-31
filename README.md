@@ -144,4 +144,4 @@ This project is intended as an educational demonstration.
 
 ## Other CODSOFT Project
 
-➡️ [Network Packet Sniffer & Analyzer](https://github.com/KernelRift/network-packet-sniffer)
+➡️ [Network Packet Sniffer & Analyzer](https://github.com/KernelRift/Network-Packet-Sniffer-)

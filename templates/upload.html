@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Secure File Upload</h1>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <input
+            type="file"
+            name="file"
+            required
+        >
+
+        <button type="submit">
+            Encrypt & Upload
+        </button>
+
+    </form>
+
+    <p>
+        Files are encrypted before storage.
+    </p>
+
+    <a href="/">Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

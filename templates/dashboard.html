@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Secure File Sharing Dashboard</h1>
+
+    <p>
+        Logged in as:
+        <strong>{{ user["username"] }}</strong>
+
+        | Role:
+        <strong>{{ user["role"] }}</strong>
+
+        | <a href="/logout">Logout</a>
+    </p>
+
+    <hr>
+
+    <a href="/upload">
+        <button>Upload New File</button>
+    </a>
+
+    {% if share_link %}
+
+        <div class="share">
+
+            <h3>Temporary Download Link</h3>
+
+            <p>
+                <a href="{{ share_link }}">
+                    {{ share_link }}
+                </a>
+            </p>
+
+            <p>
+                Expires:
+                {{ expiration }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+    <h2>Available Files</h2>
+
+    <table>
+
+        <tr>
+            <th>Filename</th>
+            <th>Owner</th>
+            <th>Uploaded</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for file in files %}
+
+        <tr>
+
+            <td>
+                {{ file["filename"] }}
+            </td>
+
+            <td>
+                {{ file["username"] }}
+            </td>
+
+            <td>
+                {{ file["uploaded_at"] }}
+            </td>
+
+            <td>
+
+                <a href="/download/{{ file['id'] }}">
+                    Download
+                </a>
+
+                {% if file["owner_id"] == user["id"] %}
+
+                |
+                <a href="/share/{{ file['id'] }}">
+                    Create 10-minute link
+                </a>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
